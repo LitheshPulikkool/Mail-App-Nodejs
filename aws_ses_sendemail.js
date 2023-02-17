@@ -9,35 +9,39 @@ AWS.config.update({region: 'ap-south-1'});
 
 // Create sendEmail params 
 var params = {
-  Destination: { /* required */
+  Destination: {
+    /* required */
     CcAddresses: [
-      'lithesh.pulikkool@cognizant.com',
+      "lithesh.pulikkool@cognizant.com",
       /* more items */
     ],
     ToAddresses: [
-      'litheshp@gmail.com','lithesh.pulikkool@cognizant.com',
+      "litheshp@yahoo.com",
+      "lithesh.pulikkool@cognizant.com",
       /* more items */
-    ]
+    ],
   },
-  Message: { /* required */
-    Body: { /* required */
+  Message: {
+    /* required */
+    Body: {
+      /* required */
       Html: {
-       Charset: "UTF-8",
-       Data: "Test Mail from Talent Point"
+        Charset: "UTF-8",
+        Data: "Test Mail from Talent Point",
       },
       Text: {
-       Charset: "UTF-8",
-       Data: "<h1>Test Mail from Talent Point</h1>"
-      }
-     },
-     Subject: {
-      Charset: 'UTF-8',
-      Data: 'Test email'
-     }
+        Charset: "UTF-8",
+        Data: "<h1>Test Mail from Talent Point</h1>",
+      },
     },
-  Source: 'litheshp@yahoo.com', /* required */
+    Subject: {
+      Charset: "UTF-8",
+      Data: "Test email",
+    },
+  },
+  Source: "litheshp@gmail.com" /* required */,
   ReplyToAddresses: [
-     'litheshp@yahoo.com',
+    "litheshp@gmail.com",
     /* more items */
   ],
 };
