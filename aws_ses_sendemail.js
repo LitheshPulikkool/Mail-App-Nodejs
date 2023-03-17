@@ -5,7 +5,16 @@ require('dotenv').config()
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
 // Set the region 
-AWS.config.update({region: 'ap-south-1'});
+//AWS.config.update({ "accessKeyId": process.env.YOUR_ACCESS_KEY_ID, "secretAccessKey": process.env.YOUR_SECRET_ACCESS_KEY, "region": "ap-south-1" });
+AWS.config.loadFromPath('./config.json');
+
+AWS.config.getCredentials(function (err) {
+  if (err) console.log(err.stack);
+  // credentials not loaded
+  else {
+    console.log("Access key:", AWS.config.credentials.accessKeyId);
+  }
+});
 
 // Create sendEmail params 
 var params = {
